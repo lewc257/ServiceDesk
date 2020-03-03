@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="resources/css/Style.css" />
+	</h:head>
+	<h2>Appointments</h2>
+	<h:form id="appTab">
+		<h:dataTable id="appointments" value="#{appointmentBusinessBean.getAppointmentList()}" var="a">
+		
+		<h:column>
+			<f:facet name="header">Date</f:facet>
+			<h:outputText id="appointmentDate" value="#{a.appointmentDate}">
+				
+			</h:outputText>
+		</h:column>
+		
+				
+		<h:column>
+			<f:facet name="header">Type</f:facet>
+			<h:outputText id="appointmentTypeId" value="#{a.appointmenttype.appointmentTypeName}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Status</f:facet>
+			<h:outputText id="appointmentStatusId" value="#{a.appointmentstatus.appointmentStatusName}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Employee</f:facet>
+			<h:outputText id="employeeId" value="#{a.employee.firstName}">
+				
+			</h:outputText>
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Fault Reported</f:facet>
+			<h:outputText id="faultId" value="#{a.fault.dateReported}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Product</f:facet>
+			<h:outputText id="productId" value="#{a.product.productName}">
+				
+			</h:outputText>
+		</h:column>
+		
+		</h:dataTable>
+	</h:form>
+</html>

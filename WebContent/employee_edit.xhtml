@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<h:head>
+    <h2>Edit Employee Details</h2>
+    <link rel="stylesheet" type="text/css" href="resources/css/Style.css" />
+</h:head>
+
+<h:body>
+	<h:form>
+	 <h:panelGrid columns="2">
+		<h:outputLabel value="Username"/> 
+        <h:outputLabel value="#{employeeBusinessBean.getDetailEntry().username}" />
+        
+        <h:outputLabel value="User Password"/> 
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().password}" />
+        
+        <h:outputLabel value="Title"/>
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().title}" />
+        
+        <h:outputLabel value="First Name"/>
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().firstName}" />
+        
+        <h:outputLabel value="Middle Name"/>
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().middleName}" />
+        
+        <h:outputLabel value="Last Name"/>
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().lastName}" />
+        
+        <h:outputLabel value="Personal Email"/>
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().personalEmail}" />
+        
+        <h:outputLabel value="Address Line 1"/>
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().addressLine1}" />
+        
+        <h:outputLabel value="Address Line 2"/>
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().addressLine2}" />
+        
+        <h:outputLabel value="Street"/>
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().street}" />
+        
+        <h:outputLabel value="City"/>
+      	<h:inputText value="#{employeeBusinessBean.getDetailEntry().city}" />
+        
+        <h:outputLabel value="Post Code"/>
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().postcode}" />
+        
+        <h:outputLabel value="Country"/> 
+        <h:inputText value="#{employeeBusinessBean.getDetailEntry().country}" />  
+	</h:panelGrid>
+	    <div style="text-align: center" id="submitBtnnnnn" class="textPlacement">
+	    	<h:commandButton value="Save Changes" action="#{employeeBusinessBean.editEmployee()}" />
+	    </div>
+    </h:form>
+</h:body>
+</html>

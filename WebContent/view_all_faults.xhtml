@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<h2>Reported faults</h2>
+	<h:outputStylesheet library="css" name="table.css"/>
+	<link rel="stylesheet" type="text/css" href="resources/css/Style.css" />
+</h:head>
+
+	<h:form id="appTab">
+		<h:dataTable value="#{faultBusinessBean.getFaults()}" var="f" 
+				styleClass="table"
+    			headerClass="table-header"
+    			rowClasses="table-odd-row,table-even-row">
+			
+		<h:column>
+			<f:facet name="header">Customer</f:facet>
+			<h:outputText  value="#{f.customer.getFullName()}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Date Reported</f:facet>
+			<h:outputText value="#{f.dateReported}">
+				
+			</h:outputText>
+		</h:column>
+		
+				
+		<h:column>
+			<f:facet name="header">Type</f:facet>
+			<h:outputText value="#{f.faulttype.faultName}">
+				
+			</h:outputText>
+		</h:column>
+	
+		
+		<h:column>
+			<f:facet name="header">Product</f:facet>
+			<h:outputText  value="#{f.product.productName}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Comment</f:facet>
+			<h:outputText  value="#{f.comments}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+				<h:commandButton value="Book" action="#{faultBusinessBean.bookAppointmentAction(f)}" />
+		</h:column>
+
+		
+		</h:dataTable>
+				
+		<h:panelGrid columns="2">
+			<h:button value="Home" outcome="employee_dashboard.xhtml" />
+			<h:button value="View Faults" outcome="view_all_faults.xhtml" />
+		</h:panelGrid>
+	</h:form>
+
+</html>

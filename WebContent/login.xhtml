@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Login Page</title>
+	<link rel="stylesheet" type="text/css" href="resources/css/Style.css" />
+	<style type="text/css">
+.fontSize {
+	font-size: 30px
+}
+.textPlacement {
+	margin: 12px;
+}
+
+.inputBox {
+	width: 300px;
+	border-radius: 2px;
+}
+
+.button {
+	background-color: #f50000;
+	border: none;
+	margin: auto;
+	color: white;
+	padding: 10px 24px;
+	width: 300px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+}
+
+.button {
+	border-radius: 12px;
+}
+
+.button2:hover {
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 10px 40px 0
+		rgba(0, 0, 0, 0.19);
+}
+</style>
+
+</h:head>
+<h:body>
+	<center>
+		<div>
+			<h2>
+				<span style="font-family: Bebas Neue; font-size: 50px">Sign In</span>
+
+			</h2>
+		</div>
+	
+		<h:form id="loginForm">
+			<div style="text-align: center" id="userName" class="inputBox">
+				<span style="font-family: Calibri">Username:</span>
+				<h:inputText id="username" class="fontSize" value="#{loginBusinessBean.username}" required="true" validatorMessage="Invalid Username!"/>
+				<h:message for="username" style="color:red"/>
+			</div>
+			
+			<div style="text-align: center" id="password" class="inputBox" >
+				<span style="font-family: Calibri">Password:</span>
+				<h:inputSecret id="password" class="fontSize" value="#{loginBusinessBean.password}" required="true" validatorMessage="Invalid Username!"/>
+				<h:message for="password" style="color:red"/>
+			</div>
+			
+			<div style="text-align: center" id="submitBtn" class="textPlacement">
+				<h:commandButton class="button button2" value="Login"
+				action="#{loginBusinessBean.login}"></h:commandButton>
+			</div>
+
+			<div style="text-align: center" id="registerBtn" class="textPlacement">
+				<h:button class="button button2" value="Register"
+				outcome="create_account.xhtml" />
+			</div>
+			
+		</h:form>
+		</center>
+	</h:body>
+</html>
+

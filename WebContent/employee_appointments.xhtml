@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<h2>Booked Appointments</h2>
+	<h:outputStylesheet library="css" name="table.css"/>
+	<link rel="stylesheet" type="text/css" href="resources/css/Style.css" />
+</h:head>
+
+<h:body>
+	<h:outputLabel rendered="#{loginBusinessBean.getLoggedInEmployee().empAppointmentsIsEmpty()}">
+		<div>You don't have any appointments</div>
+	</h:outputLabel>
+	
+	
+	
+	<h:outputLabel rendered="#{loginBusinessBean.getLoggedInEmployee().empAppointmentsIsNotEmpty()}">
+		<h:dataTable value="#{loginBusinessBean.getLoggedInEmployee().getAppointments()}" var="ea" 
+				styleClass="table"
+    			headerClass="table-header"
+    			rowClasses="table-odd-row,table-even-row">
+		
+		<h:column>
+			<f:facet name="header">Appointment Date</f:facet>
+			<h:outputText id="appointmentDate" value="#{ea.appointmentDate}">
+				
+			</h:outputText>
+		</h:column>
+		
+				
+		<h:column>
+			<f:facet name="header">Type</f:facet>
+			<h:outputText id="appointmentTypeId" value="#{ea.appointmenttype.appointmentTypeName}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Status</f:facet>
+			<h:outputText id="appointmentStatusId" value="#{ea.appointmentstatus.appointmentStatusName}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Customer</f:facet>
+			<h:outputText id="customerId" value="#{ea.customer.fullName}">
+				
+			</h:outputText>
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Fault Reported</f:facet>
+			<h:outputText id="faultId" value="#{ea.fault.dateReported}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Product</f:facet>
+			<h:outputText id="productId" value="#{ea.product.productName}">
+				
+			</h:outputText>
+		</h:column>
+		</h:dataTable>
+	</h:outputLabel>
+</h:body>
+</html>

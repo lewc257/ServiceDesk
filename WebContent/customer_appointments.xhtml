@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<h2>Your Appointments</h2>
+	<h:outputStylesheet library="css" name="table.css"/>
+	<link rel="stylesheet" type="text/css" href="resources/css/Style.css" />
+</h:head>
+
+<h:body>
+	<h:outputLabel rendered="#{loginBusinessBean.getLoggedInCustomer().customerAppointmentsIsEmpty()}">
+		<div>You don't have any appointments</div>
+	</h:outputLabel>
+	
+	<div id="reportFaultBtn" class="textPlacement">
+		<h:button value="Report a Fault" outcome="report_fault.xhtml" />
+	</div>
+	
+	<h:outputLabel rendered="#{loginBusinessBean.getLoggedInCustomer().customerAppointmentsIsNotEmpty()}">
+		<h:dataTable value="#{loginBusinessBean.getLoggedInCustomer().getAppointments()}" var="ca" 
+				styleClass="table"
+    			headerClass="table-header"
+    			rowClasses="table-odd-row,table-even-row">
+		
+		<h:column>
+			<f:facet name="header">Appointment Date</f:facet>
+			<h:outputText id="appointmentDate" value="#{ca.appointmentDate}">
+				
+			</h:outputText>
+		</h:column>
+		
+				
+		<h:column>
+			<f:facet name="header">Type</f:facet>
+			<h:outputText id="appointmentTypeId" value="#{ca.appointmenttype.appointmentTypeName}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Status</f:facet>
+			<h:outputText id="appointmentStatusId" value="#{ca.appointmentstatus.appointmentStatusName}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Engineer</f:facet>
+			<h:outputText id="employeeId" value="#{ca.employee.firstName}">
+				
+			</h:outputText>
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Fault Reported</f:facet>
+			<h:outputText id="faultId" value="#{ca.fault.dateReported}">
+				
+			</h:outputText>
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Product</f:facet>
+			<h:outputText id="productId" value="#{ca.product.productName}">
+				
+			</h:outputText>
+		</h:column>
+		</h:dataTable>
+	</h:outputLabel>
+</h:body>
+</html>

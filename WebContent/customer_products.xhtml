@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<h:head>
+		<h2>Your Products</h2>
+		<h:outputStylesheet library="css" name="table.css" />
+		<link rel="stylesheet" type="text/css" href="resources/css/Style.css" />
+</h:head>
+
+<h:body>
+
+
+	<h:outputLabel
+		rendered="#{loginBusinessBean.getLoggedInCustomer().customerProductsIsEmpty()}">
+		<div>You don't have any products</div>
+	</h:outputLabel>
+
+	<h:outputLabel
+		rendered="#{loginBusinessBean.getLoggedInCustomer().customerProductsIsNotEmpty()}">
+		<h:form>
+			<h:dataTable
+				value="#{loginBusinessBean.getLoggedInCustomer().getCustomerproducts()}"
+				var="cp" styleClass="table" headerClass="table-header"
+				rowClasses="table-odd-row,table-even-row">
+
+				<h:column>
+					<f:facet name="header">Product Name   </f:facet>
+					<h:outputText id="productName"
+						value="#{cp.getProduct().getProductName()}">
+
+					</h:outputText>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Product Type</f:facet>
+					<h:outputText id="productType"
+						value="#{cp.getProduct().getProducttype().getProductType()}">
+					</h:outputText>
+
+				</h:column>
+				<h:column>
+
+					<f:facet name="header">
+						<h:outputText value="Delete" />
+					</f:facet>
+					<h:commandLink value="Delete"
+						action="#{customerBusinessBean.removeCustomerProduct(cp)}" />
+				</h:column>
+
+
+			</h:dataTable>
+		</h:form>
+	</h:outputLabel>
+
+	<h:panelGrid columns="2">
+		<h:button value="Home" outcome="customer_dashboard.xhtml" />
+		<h:button value="Register Products" outcome="register_product.xhtml" />
+	</h:panelGrid>
+	
+</h:body>
+</html>

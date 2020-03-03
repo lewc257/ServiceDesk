@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<head>
+		<h1>Sign Up</h1>
+		<link rel="stylesheet" type="text/css" href="resources/css/Style.css" />
+	</head>
+
+	<body>
+		<h:form>
+			<h:panelGrid columns="1">
+			
+			<h1>Customer Login Detail</h1>
+			Password
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().password}" />
+			
+			<h1>Customer Detail</h1>
+			Title
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().title}" />
+			First Name
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().firstName}" />
+			Last Name
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().lastName}" />
+			Middle Name
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().middleName}" />
+			Contatct Number
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().contactNumber}" />
+			Personal Email
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().personalEmail}" />
+			 
+			<h1>Customer Address</h1>
+			Address Line 1
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().addressLine1}" />
+			Address Line 2
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().addressLine2}" />
+			Street
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().street}" />
+			City
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().city}" />
+			Post Code
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().postcode}" />
+			Country
+			<h:inputText value="#{customerRegistrationBean.getDetailEntry().country}" />
+			
+			<h:commandButton value="Create Account" action="#{customerRegistrationBean.addCustomer()}"/>
+			</h:panelGrid>
+	
+		</h:form>
+	</body>
+</html>
+

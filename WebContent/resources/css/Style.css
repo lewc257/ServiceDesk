@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+/* Style.css */
+body {
+ /*background-color: #3AAFA9;*/
+ background-image: url("https://render.fineartamerica.com/images/rendered/default/print/8.000/5.625/break/images-medium-5/minimal-futuristic-corporate-tech-grey-white-background-saicle.jpg");
+ background-size:   cover;
+ 	background-repeat:  no-repeat;
+ 	background-position: center center;
+
+  color: #313352;
+}
+h1 {
+ color: #000000;
+ text-align: center;
+ font: italic 200% fantasy;
+}
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="ServiceDesk" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/_servicedesk</jta-data-source>
+		<class>com.project.servicedesk.entity.Appointment</class>
+		<class>com.project.servicedesk.entity.Appointmentstatus</class>
+		<class>com.project.servicedesk.entity.Appointmenttype</class>
+		<class>com.project.servicedesk.entity.CusAddress</class>
+		<class>com.project.servicedesk.entity.CusDetail</class>
+		<class>com.project.servicedesk.entity.Customer</class>
+		<class>com.project.servicedesk.entity.Customerproduct</class>
+		<class>com.project.servicedesk.entity.Department</class>
+		<class>com.project.servicedesk.entity.EmpAddress</class>
+		<class>com.project.servicedesk.entity.EmpDetail</class>
+		<class>com.project.servicedesk.entity.Employee</class>
+		<class>com.project.servicedesk.entity.Employeeposition</class>
+		<class>com.project.servicedesk.entity.EmpPhotograph</class>
+		<class>com.project.servicedesk.entity.Fault</class>
+		<class>com.project.servicedesk.entity.Faulttype</class>
+		<class>com.project.servicedesk.entity.Location</class>
+		<class>com.project.servicedesk.entity.Product</class>
+		<class>com.project.servicedesk.entity.Producttype</class>
+		<class>com.project.servicedesk.entity.Useraccount</class>
+	</persistence-unit>
+</persistence>

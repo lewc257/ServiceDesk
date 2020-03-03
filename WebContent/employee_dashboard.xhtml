@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <h2>Employee Dash-board</h2>
+	<h:link value="Sign Out" outcome="login.xhtml" />
+	<link rel="stylesheet" type="text/css" href="resources/css/Style.css" />
+</h:head>
+<h:body>
+	<h:form>
+    	<h:panelGrid columns="3">
+    		<h:button value="View All Faults" outcome="view_all_faults.xhtml" />
+			<h:button value="View Appointments Made" outcome="employee_appointments.xhtml" />
+			<h:commandButton value="Edit Details" action="#{employeeBusinessBean.employeeEditForm(loginBusinessBean.getLoggedInEmployee())}"/>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

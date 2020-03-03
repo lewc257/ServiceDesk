@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+<h:head>
+	<h2>Report a fault</h2>
+	<link rel="stylesheet" type="text/css" href="resources/css/Style.css" />
+	<style type="text/ccs">
+
+.inputBox {
+	width: 300px;	
+	border-radius: 150px;
+}
+
+.fontSize {
+	font-size: 30px
+}
+
+</style>
+
+
+</h:head>
+<h:body>
+	<h:form>
+
+		<h:outputLabel value="Your Product: "></h:outputLabel>
+		<h:selectOneMenu value="#{customerBusinessBean.selectedProductName}">
+			<f:selectItem itemLabel="--Select One--" itemValue="" />
+			<f:selectItems
+				value="#{loginBusinessBean.getLoggedInCustomer().getCustomerproducts()}">
+			</f:selectItems>
+		</h:selectOneMenu>
+		<br> </br>
+
+		<h:outputLabel value="Fault type: "></h:outputLabel>
+		<h:selectOneMenu value="#{customerBusinessBean.selectedFaultTypeName}">
+			<f:selectItem itemLabel="--Select One--" itemValue="" />
+			<f:selectItems value="#{faultBusinessBean.getFaultTypeNames()}" />
+			<f:selectItem itemLabel="Other (specify)" itemValue="Other" />
+		</h:selectOneMenu>
+		<br></br>
+		
+		<h4>Comments:</h4>
+		<div id="comments">
+			<span style="font-family: Calibri"></span>
+			<h:inputTextarea rows="7" cols="50" value="#{customerBusinessBean.faultComments}" />
+		</div>
+		
+		<h:commandButton value="Report fault"
+			action="#{customerBusinessBean.reportFault(loginBusinessBean.getLoggedInCustomer())}" />
+		<br></br>
+		<br></br>
+		<h:panelGrid style="text-align: center" columns="2">
+			<h:button value="Home" outcome="customer_dashboard.xhtml" />
+			<h:button value="View Appointments"
+				outcome="customer_appointments.xhtml" />
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+</html>
